@@ -1,6 +1,7 @@
 {
   "name": "nordcraft-cloudflare-worker",
   "scripts": {
+    "build": "bun bin/syncStaticAssets.ts && bunx esbuild --bundle --outdir=dist --platform=node --format=esm src/index.ts",
     "predocker:build": "bun bin/syncStaticAssets.ts",
     "docker:build": "cd ../../ && docker build . -t nordcraft-backend -f packages/backend/Dockerfile",
     "docker:run": "docker run -p 12345:12345 --name nordcraft-backend -e PORT=12345 nordcraft-backend",
